@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ReZerve</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/loginmodal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"crossorigin="anonymous"></script>
+    <script src='../js/user.js'></script>
+    <script src='../js/restraurant.js'></script>
+    <script src='../js/booking.js'></script>
+
+</head>
+
+<body onload="setNavBar(); getSelectedRestaurant(); checkOwner(); fillRestaurant(); //createBooking();">
+    <div w3-include-html="../restaurant/createRestaurant.html"></div>
+    <div w3-include-html="../Login/register.html"></div>
+    <div w3-include-html="../Login/login.html"></div>
+    <div w3-include-html="../restaurant/editRestaurant.html"></div>
+    <header>
+        <a href="../index.html" class="logo" style="display: inline-block;"><i class="fas fa-utensils"></i>ReZerve</a>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <nav class="navbar" style="display: inline-block;">
+            <a href="../restaurant/restaurantDisplay.html" style="display: inline-block;">Restaurants</a>
+            <li class="nav-item" id="navLogin" style="display: inline-block;">
+                <a href="#" data-toggle="modal" data-target="#loginForm">Login</a>
+            </li>
+            <li class="nav-item" id="navRegister" style="display: inline-block;">
+                <a href="#" data-toggle="modal" data-target="#registerForm">Register</a>
+            </li>
+            <li class="nav-item" id="navBooking" style="display: inline-block;">
+            </li>
+        </nav>
+
+    </header>
+    <section class="reshome" id="reshome">
+
+        <div class="content">
+            
+            <a href="#" onclick="showCreate()">Reserve Now</a>
+        </div>
+    </section>
+    <!-- popular section starts  -->
+    <section class="order" id="order">
+       
+            <h1 class="heading" id="resName"></h1>
+       
+        <div class="row">
+            <div class ="row">
+            <a class="resView">
+                <div id="resCategory"></div>
+            </a>
+            <div class="info">
+                <h1 id ="resOwner"></h1>
+                <h3 id ="resDescription"></h3>
+                <h3 id ="resOpening"></h3>
+                <h3 id ="resClosing"></h3>
+                <h3 id ="resLocation"></h3>
+                <h3 id ="resContact"></h3>
+                <div class ="row">
+                    <div id="resUpdate"></div>
+                    <div id="resDelete"></div>
+                </div>
+            </div>
+            </div>
+            
+            <form>
+            <h1 class="heading"> <span>Reserve</span> now!</h1>
+                <div class="inputBox">
+                    <input type="number" placeholder="pax" id="pax">
+                    <input type="datetime" placeholder="Date" id="dateSelected">
+                </div>
+
+                <textarea placeholder="Remarks" id="remarks" cols="30" rows="10"></textarea>
+                <button type="button" class="btn btn-warning" onclick="createBooking()" class="btn">Reserve Now</button>
+            </form>
+
+        </div>
+
+    </section>
+
+    <section class="footer">
+        <div class="share">
+            <a href="#" class="btn btn-warning">facebook</a>
+            <a href="#" class="btn btn-warning">twitter</a>
+            <a href="#" class="btn btn-warning">instagram</a>
+            <a href="#" class="btn btn-warning">pinterest</a>
+            <a href="#" class="btn btn-warning">linkedin</a>
+        </div>
+    </section>
+
+
+    <a href="#reshome" class="fas fa-angle-up" id="scroll-top"></a>
+
+
+    <div class="loader-container">
+        <img src="../images/loader.gif" alt="">
+    </div>
+
+
+    <script src="https://www.w3schools.com/lib/w3.js"></script>
+    
+    <script>
+        //to bring in other HTML on the fly into this page
+        w3.includeHTML();
+    </script>
+    <!-- Popper JS -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js'></script>
+  <!-- Bootstrap JS -->
+  <!-- <script src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js%27%3E'></script> -->
+
+
+</body>
+
+</html>
